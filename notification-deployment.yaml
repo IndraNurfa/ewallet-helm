@@ -17,3 +17,21 @@ spec:
           image: dragonevo/ewallet-notification:latest
           ports:
             - containerPort: 7003 # GRPC
+          env:
+            - name: SMTP_AUTH_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: SMTP_AUTH_PASSWORD
+            - name: SMTP_AUTH_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: SMTP_AUTH_EMAIL
+          resources:
+            requests:
+              cpu: '100m'
+              memory: '128Mi'
+            limits:
+              cpu: '300m'
+              memory: '256Mi'

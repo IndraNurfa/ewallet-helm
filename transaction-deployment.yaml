@@ -17,3 +17,8 @@ spec:
           image: dragonevo/ewallet-transaction:latest
           ports:
             - containerPort: 8082 # HTTP
+          env:
+            - name: UMS_GRPC_HOST
+              value: ums:7000
+            - name: NOTIFICATION_GRPC_HOST
+              value: notification:7003

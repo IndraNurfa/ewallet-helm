@@ -18,3 +18,13 @@ spec:
           ports:
             - containerPort: 8080 # HTTP
             - containerPort: 7000 # gRPC
+          env:
+            - name: NOTIFICATION_GRPC_HOST
+              value: notification:7003
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
